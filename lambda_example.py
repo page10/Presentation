@@ -32,12 +32,9 @@ class DamageCalculator:
 
 
 class BattleManager:
-    def __init__(self):
-        pass
-
     # without lambda function we have to switch between different cases
     # there can be a lot of cases in a real game
-    def deal_damage(self, attacker, defender, calculator, args):
+    def deal_damage(attacker, defender, calculator, args):
         if calculator == DamageCalculator.MINUS_METHOD:
             damage = attacker.attack - defender.defend
         elif calculator == DamageCalculator.TIMES_METHOD:
@@ -62,11 +59,8 @@ using lambda functions.
 
 
 class BattleManagerWithLambda:
-    def __init__(self):
-        pass
-
     # using lambda function we can make the code more concise
-    def deal_damage(self, attacker, defender, damage_calculator, args):
+    def deal_damage(attacker, defender, damage_calculator, args):
         if damage_calculator:
             defender.hp -= damage_calculator(attacker, defender, args)
 
@@ -82,20 +76,18 @@ def main():
     defender = Character(hp=100, attack=30, defend=10)
     # -----------------------------------
     # example of not using lambda function
-    battle_manager = BattleManager()
-
     # deal damage using minus method
-    battle_manager.deal_damage(
+    BattleManager.deal_damage(
         attacker, defender, DamageCalculator.MINUS_METHOD, [])
     print(defender.hp)
 
     # deal damage using times method
-    battle_manager.deal_damage(
+    BattleManager.deal_damage(
         attacker, defender, DamageCalculator.TIMES_METHOD, [10])
     print(defender.hp)
 
     # deal damage using true damage method
-    battle_manager.deal_damage(
+    BattleManager.deal_damage(
         attacker, defender, DamageCalculator.TRUE_DAMAGE, [10])
     print(defender.hp)
 
@@ -103,10 +95,9 @@ def main():
     # example of using lambda function
     attacker = Character(hp=100, attack=50, defend=20)
     defender = Character(hp=100, attack=30, defend=10)
-    battle_manager_with_lambda = BattleManagerWithLambda()
 
     # deal damage using minus method
-    battle_manager_with_lambda.deal_damage(
+    BattleManagerWithLambda.deal_damage(
         attacker, defender,
         lambda attacker, defender, args: attacker.attack - defender.defend,
         []
@@ -114,7 +105,7 @@ def main():
     print(defender.hp)
 
     # deal damage using times method
-    battle_manager_with_lambda.deal_damage(
+    BattleManagerWithLambda.deal_damage(
         attacker, defender,
         lambda attacker, defender, args: round(
             attacker.attack * (
@@ -126,7 +117,7 @@ def main():
     print(defender.hp)
 
     # deal damage using true damage method
-    battle_manager_with_lambda.deal_damage(
+    BattleManagerWithLambda.deal_damage(
         attacker, defender,
         lambda attacker, defender, args: args[0],
         [10]
