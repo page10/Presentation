@@ -66,7 +66,7 @@ class BattleManagerWithLambda:
         pass
 
     # using lambda function we can make the code more concise
-    def deal_damage(attacker, defender, damage_calculator, args):
+    def deal_damage(self, attacker, defender, damage_calculator, args):
         if damage_calculator:
             defender.hp -= damage_calculator(attacker, defender, args)
 
@@ -87,17 +87,22 @@ def main():
     # deal damage using minus method
     battle_manager.deal_damage(
         attacker, defender, DamageCalculator.MINUS_METHOD, [])
+    print(defender.hp)
 
     # deal damage using times method
     battle_manager.deal_damage(
         attacker, defender, DamageCalculator.TIMES_METHOD, [10])
+    print(defender.hp)
 
     # deal damage using true damage method
     battle_manager.deal_damage(
         attacker, defender, DamageCalculator.TRUE_DAMAGE, [10])
+    print(defender.hp)
 
     # -----------------------------------
     # example of using lambda function
+    attacker = Character(hp=100, attack=50, defend=20)
+    defender = Character(hp=100, attack=30, defend=10)
     battle_manager_with_lambda = BattleManagerWithLambda()
 
     # deal damage using minus method
@@ -106,6 +111,7 @@ def main():
         lambda attacker, defender, args: attacker.attack - defender.defend,
         []
     )
+    print(defender.hp)
 
     # deal damage using times method
     battle_manager_with_lambda.deal_damage(
@@ -117,6 +123,7 @@ def main():
         ),
         [10]
     )
+    print(defender.hp)
 
     # deal damage using true damage method
     battle_manager_with_lambda.deal_damage(
@@ -124,3 +131,8 @@ def main():
         lambda attacker, defender, args: args[0],
         [10]
     )
+    print(defender.hp)
+
+
+if __name__ == "__main__":
+    main()
