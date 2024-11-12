@@ -1,7 +1,7 @@
 ### Lambda Function
 Presented by Group 7: Yilin Pan, Xiaojing An, Weihang Ding
 #### Introduction
-Lambda functions provide a concise way to create: 1. small,  anonymous  functions 2. ithout needing to define a formal function using def.
+Lambda functions provide a concise way to create: 1. small,  anonymous  functions 2. without needing to define a formal function using def. [1]
 
 #### Syntax
 ```python
@@ -13,9 +13,9 @@ def triple(a):
 lambda a: a*3
 ```
 You may notice that Lambda functions *implicitly return* the result of evaluating the expression, while def functions use an explicit return statement. Also, Lambda functions are limited to a *single expression*. 
-Def functions can contain multiple statements and have more complex logic.
+Def functions can contain multiple statements and have more complex logic. [2]
 
-#### Live code example: Gradebook
+#### Live code example: Gradebook [3]
 **Requirement**
 
 In gradebook, find:
@@ -54,9 +54,12 @@ students_with_final_greater_than_midterm = filter(
 students_with_average_homework_greater_than_80 = filter(
     students, lambda student: sum(student.homework) / len(student.homework) > 80)
 ```
-*Note: filter is actually a higer-order function in python, which has similar logic as the above filter function. You can search it if you are interested.*
+*Note: filter is actually a higher-order function in python, which has similar logic as the above filter function. You can search it if you are interested.*
 
 *Citation*
-> 1. Northeastern CS 5001, homework 5, gradebook,  https://northeastern.instructure.com/courses/192162/assignments/2364714?module_item_id=10749754 
-> 2. How to Use Python Lambda Functionsby Andre Burgaud  Jun 19, 2019, https://realpython.com/python-lambda/
-> 3. Python Lambda Functions, Last Updated: 20 Jun 2024, https://www.geeksforgeeks.org/python-lambda-anonymous-functions-filter-map-reduce/
+
+[1] A. Burgaud, "How to Use Python Lambda Functions," Real Python, Jun. 19, 2019. [Online]. Available: https://realpython.com/python-lambda/
+
+[2] "Python Lambda Functions," GeeksforGeeks, Jun. 20, 2024. [Online]. Available: https://www.geeksforgeeks.org/python-lambda-anonymous-functions-filter-map-reduce/
+
+[3] Northeastern CS 5001, "Homework 5, Gradebook," [Online]. Available: https://northeastern.instructure.com/courses/192162/assignments/2364714?module_item_id=10749754
