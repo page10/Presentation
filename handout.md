@@ -1,9 +1,7 @@
 ### Lambda Function
 Presented by Group 7: Yilin Pan, Xiaojing An, Weihang Ding
 #### Introduction
-Lambda functions provide a concise way to create: 
-- Small,  anonymous  functions 
-- Without needing to define a formal function using def.
+Lambda functions provide a concise way to create: 1. small,  anonymous  functions 2. ithout needing to define a formal function using def.
 
 #### Syntax
 ```python
@@ -14,12 +12,7 @@ def triple(a):
 # this is a lambda function
 lambda a: a*3
 ```
-**Return:**
-Lambda functions *implicitly return the* result of evaluating the expression.
-def functions use an explicit return statement.
-
-**Scope:**
-Lambda functions are limited to a *single expression*. 
+You may notice that Lambda functions *implicitly return* the result of evaluating the expression, while def functions use an explicit return statement. Also, Lambda functions are limited to a *single expression*. 
 Def functions can contain multiple statements and have more complex logic.
 
 #### Live code example: Gradebook
@@ -31,7 +24,7 @@ In gradebook, find:
 3. students whose final exam scores are higher than mid-term exam scores.
 4. students whose have average homework scores greater than 80.
 
-We noticed that each requirement is to find a specific group of students in full students. Instead of writing 4 independent functions with repititive codes, we can write a function which can filter students out, based on another function which defines students selection criteria.
+You may notice that each requirement is to find a specific group of students in all students. Instead of writing 4 independent functions with repititive codes, we can write a function which can filter students out, based on another function which defines students selection criteria.
 
 Below is the code snippet of using lambda function to achieve above goals.
 
@@ -62,3 +55,8 @@ students_with_average_homework_greater_than_80 = filter(
     students, lambda student: sum(student.homework) / len(student.homework) > 80)
 ```
 *Note: filter is actually a higer-order function in python, which has similar logic as the above filter function. You can search it if you are interested.*
+
+*Citation*
+> 1. Northeastern CS 5001, homework 5, gradebook,  https://northeastern.instructure.com/courses/192162/assignments/2364714?module_item_id=10749754 
+> 2. How to Use Python Lambda Functionsby Andre Burgaud  Jun 19, 2019, https://realpython.com/python-lambda/
+> 3. Python Lambda Functions, Last Updated: 20 Jun 2024, https://www.geeksforgeeks.org/python-lambda-anonymous-functions-filter-map-reduce/
