@@ -20,9 +20,9 @@ students = Student.CreateStudent()
 student_named_harry = filter(
     students, lambda student: student.name == 'Harrier Dubois')
 
-# Find students with final score greater than 60
-students_with_final_greater_than_60 = filter(
-    students, lambda student: student.final > 60)
+# Find students with final score greater than 83
+students_with_final_greater_than_83 = filter(
+    students, lambda student: student.final > 83)
 
 # Find students with final score greater than midterm
 students_with_final_greater_than_midterm = filter(
@@ -33,6 +33,6 @@ students_with_average_homework_greater_than_80 = filter(
     students, lambda student: sum(student.homework) / len(student.homework) > 80)
 
 print(student_named_harry)
-print(students_with_final_greater_than_60)
+print(students_with_final_greater_than_83)
 print(students_with_final_greater_than_midterm)
 print(students_with_average_homework_greater_than_80)

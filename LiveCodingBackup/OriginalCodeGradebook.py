@@ -31,7 +31,7 @@ def find_student_by_final(index, students) -> list:
     student_found = find_student_by_final(next_index, students)
 
     current_student = students[index]
-    if current_student.final > 60:
+    if current_student.final > 83:
         return student_found.append(current_student)
     return student_found
 
