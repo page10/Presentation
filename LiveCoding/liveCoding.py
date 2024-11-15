@@ -10,16 +10,39 @@ students = Student.CreateStudent()
 #     return student_list
 
 
-def find_students_by_name(student, required_name, index=0):
+# def check_student_name(required_name):
+#     def check_name(student):
+#         return student.name == required_name
+#     return check_name
+
+
+def filter(student, predicate, index=0):
     if index >= len(student):
         return []
-    student_found = find_students_by_name(student, required_name, index + 1)
+    student_found = filter(student, predicate, index + 1)
     current_student = student[index]
-    if current_student.name == required_name:
+    if predicate(current_student):
         student_found.append(current_student)
+
     return student_found
 
 
-student_named_harry = find_students_by_name(students, 'Harrier Dubois')
+# Find students by name
+student_named_harry = filter(
+    students, lambda student: student.name == 'Harrier Dubois')
+# Find students with final score greater than 83
+students_with_final_greater_than_83 = filter(
+    students, lambda student: student.final > 83)
+
+# Find students with final score greater than midterm
+students_with_final_greater_than_midterm = filter(
+    students, lambda student: student.final > student.midterm)
+
+# Find students with average homework score greater than 80
+students_with_average_homework_greater_than_80 = filter(
+    students, lambda student: sum(student.homework) / len(student.homework) > 80)
 
 print(student_named_harry)
+print(students_with_final_greater_than_83)
+print(students_with_final_greater_than_midterm)
+print(students_with_average_homework_greater_than_80)
